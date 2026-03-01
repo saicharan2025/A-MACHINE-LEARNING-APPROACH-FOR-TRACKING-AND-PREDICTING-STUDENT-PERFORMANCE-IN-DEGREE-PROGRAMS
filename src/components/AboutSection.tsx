@@ -60,7 +60,7 @@ export default function AboutSection() {
                 "Machine Learning & Deep Learning",
                 "Educational Data Mining",
                 "Python, TensorFlow, Scikit-learn",
-                "Full-Stack Web Development",
+                "AI/ML Engineering",
               ].map((skill) => (
                 <div key={skill} className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(var(--primary))" }} />
@@ -70,7 +70,7 @@ export default function AboutSection() {
             </div>
 
             <div className="flex gap-3">
-              <a href="https://github.com/saicharan" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/saicharan2025" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg btn-outline-primary text-sm">
                 <Github className="w-4 h-4" /> GitHub
               </a>
