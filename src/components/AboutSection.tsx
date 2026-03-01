@@ -79,7 +79,7 @@ export default function AboutSection() {
                 style={{ background: "hsl(var(--secondary))", color: "hsl(var(--foreground))", border: "1px solid hsl(var(--border))" }}>
                 <Linkedin className="w-4 h-4" /> LinkedIn
               </a>
-              <a href="mailto:saicharan@example.com"
+              <a href="mailto:saicharan2025@gmail.com"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg text-sm transition-all duration-200 hover:-translate-y-0.5"
                 style={{ background: "hsl(var(--secondary))", color: "hsl(var(--foreground))", border: "1px solid hsl(var(--border))" }}>
                 <Mail className="w-4 h-4" />
