@@ -40,7 +40,7 @@ export default function FooterSection() {
                 <ExternalLink className="w-4 h-4" /> Live Demo
               </button>
               <a
-                href="https://github.com/saicharan2025"
+                href="https://github.com/saicharan2025?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl btn-outline-primary text-sm font-semibold"
