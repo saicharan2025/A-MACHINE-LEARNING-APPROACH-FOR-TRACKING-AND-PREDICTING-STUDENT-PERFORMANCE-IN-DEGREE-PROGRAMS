@@ -70,7 +70,7 @@ export default function AboutSection() {
             </div>
 
             <div className="flex gap-3">
-              <a href="https://github.com/saicharan2025" target="_blank" rel="noopener noreferrer"
+              <a href="https://github.com/saicharan2025?tab=repositories" target="_blank" rel="noopener noreferrer"
                 className="flex items-center gap-2 px-4 py-2 rounded-lg btn-outline-primary text-sm">
                 <Github className="w-4 h-4" /> GitHub
               </a>
