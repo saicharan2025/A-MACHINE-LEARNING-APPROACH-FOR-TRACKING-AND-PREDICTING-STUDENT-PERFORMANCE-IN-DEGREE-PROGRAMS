@@ -141,7 +141,7 @@ export default function FooterSection() {
         <div className="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4"
           style={{ borderColor: "hsl(var(--border))" }}>
           <p className="text-xs mono" style={{ color: "hsl(var(--muted-foreground))" }}>
-            © 2024 <span style={{ color: "hsl(var(--primary))" }}>StudentPerfAI</span> · Sai Charan · <a href="mailto:saicharan2025@gmail.com" className="hover:underline" style={{ color: "hsl(var(--primary))" }}>saicharan2025@gmail.com</a>
+            © 2024 <span style={{ color: "hsl(var(--primary))" }}>StudentPerfAI</span> · Sai Charan · <a href="mailto:saic6806@gmail.com" className="hover:underline" style={{ color: "hsl(var(--primary))" }}>saic6806@gmail.com</a>
           </p>
           <p className="text-xs" style={{ color: "hsl(var(--muted-foreground))" }}>
             Built with React · TailwindCSS · TypeScript
