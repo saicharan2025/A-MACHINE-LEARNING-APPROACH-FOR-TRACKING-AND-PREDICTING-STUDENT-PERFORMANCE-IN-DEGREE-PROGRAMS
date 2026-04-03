@@ -14,26 +14,37 @@ export default function AboutSection() {
               </div>
               <h2 className="text-3xl sm:text-4xl font-bold mb-4">
                 <span style={{ color: "hsl(var(--foreground))" }}>Final Year </span>
-                <span className="gradient-text">CS Project</span>
+                <span className="gradient-text">B.Tech Project</span>
               </h2>
               <p className="text-base leading-relaxed" style={{ color: "hsl(var(--muted-foreground))" }}>
-                This project addresses the critical challenge of student academic attrition in Indian universities, particularly in Hyderabad's engineering colleges.
-                By applying advanced ML techniques including ensemble methods and deep learning, we provide institutions with a proactive intelligence system.
+                Based on the IEEE paper "A Machine Learning Approach for Tracking and Predicting Student Performance in Degree Programs" by Jie Xu, Kyeong Ho Moon, and Mihaela van der Schaar. 
+                The project implements Matrix Factorization for course clustering and a proposed Ensemble-based Progressive Prediction (EPP) algorithm to predict student GPA as HIGH or LOW.
               </p>
             </div>
 
             <div className="space-y-3">
               {[
-                { label: "Project Title", value: "ML Approach for Tracking & Predicting Student Performance" },
-                { label: "Domain", value: "Machine Learning · Educational Data Mining" },
-                { label: "University Focus", value: "B.Tech Engineering Colleges, Hyderabad" },
-                { label: "Degree", value: "B.Tech in Artificial Intelligence & Machine Learning" },
+                { label: "Paper", value: "IEEE JSTSP 2017 — ML Approach for Student Performance" },
+                { label: "Base Module", value: "UCLA Dataset (77 records, 12 subjects, GPA: HIGH/LOW)" },
+                { label: "Extension", value: "1013 records with performance level & course recommendation" },
+                { label: "Key Algorithm", value: "Ensemble-based Progressive Prediction (EPP)" },
+                { label: "Best Results", value: "EPP: 62.5% Accuracy, 37.5% MSE (base) | 0.598 MSE (ext)" },
               ].map(({ label, value }) => (
                 <div key={label} className="flex gap-3">
                   <span className="text-xs mono mt-0.5 whitespace-nowrap" style={{ color: "hsl(var(--primary))" }}>{label}:</span>
                   <span className="text-sm" style={{ color: "hsl(var(--foreground))" }}>{value}</span>
                 </div>
               ))}
+            </div>
+
+            {/* Problems solved */}
+            <div className="card-dark rounded-xl p-4">
+              <h4 className="text-sm font-semibold mb-2" style={{ color: "hsl(var(--primary))" }}>3 Key Problems Solved</h4>
+              <div className="space-y-2 text-sm" style={{ color: "hsl(var(--muted-foreground))" }}>
+                <p>1. Students differ in course selection → <span style={{ color: "hsl(var(--foreground))" }}>Matrix Factorization clusters related courses</span></p>
+                <p>2. Courses aren't equally predictive → <span style={{ color: "hsl(var(--foreground))" }}>Data-driven feature vectors from course relevance</span></p>
+                <p>3. Need evolving predictions → <span style={{ color: "hsl(var(--foreground))" }}>EPP uses past + ongoing performance data</span></p>
+              </div>
             </div>
           </div>
 
@@ -52,15 +63,15 @@ export default function AboutSection() {
             </div>
 
             <p className="text-sm leading-relaxed mb-6" style={{ color: "hsl(var(--muted-foreground))" }}>
-              Passionate CS student specializing in Machine Learning and Data Science. This project combines a love for education, data, and AI to create real-world impact for universities across Hyderabad and India.
+              AI/ML Engineer specializing in Machine Learning and Data Science. This project implements the IEEE paper's proposed EPP algorithm using Python, Scikit-learn, and Tkinter to predict student academic performance.
             </p>
 
             <div className="space-y-2 mb-6">
               {[
-                "Machine Learning & Deep Learning",
+                "Machine Learning & Ensemble Methods",
+                "Matrix Factorization & Clustering",
+                "Python, Scikit-learn, Pandas, Matplotlib",
                 "Educational Data Mining",
-                "Python, TensorFlow, Scikit-learn",
-                "AI/ML Engineering",
               ].map((skill) => (
                 <div key={skill} className="flex items-center gap-2">
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: "hsl(var(--primary))" }} />

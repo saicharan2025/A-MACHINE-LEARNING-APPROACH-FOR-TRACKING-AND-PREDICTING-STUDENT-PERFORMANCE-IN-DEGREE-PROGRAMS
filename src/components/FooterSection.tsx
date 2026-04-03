@@ -16,7 +16,6 @@ export default function FooterSection() {
     <footer className="py-20 border-t" style={{ borderColor: "hsl(var(--border))" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-12 mb-16">
-          {/* Left: Brand + CTA */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 rounded-xl btn-primary flex items-center justify-center">
@@ -29,7 +28,7 @@ export default function FooterSection() {
             </div>
 
             <p className="text-base leading-relaxed max-w-md" style={{ color: "hsl(var(--muted-foreground))" }}>
-              A Machine Learning powered platform for academic performance tracking and prediction. Built for Hyderabad's universities. Powered by AI.
+              A Machine Learning approach for tracking and predicting student performance in degree programs. Based on IEEE JSTSP 2017 paper using Matrix Factorization and EPP algorithm.
             </p>
 
             <div className="flex flex-wrap gap-3">
@@ -37,7 +36,7 @@ export default function FooterSection() {
                 onClick={() => document.querySelector("#demo")?.scrollIntoView({ behavior: "smooth" })}
                 className="flex items-center gap-2 px-6 py-3 rounded-xl btn-primary text-sm font-semibold animate-glow-pulse"
               >
-                <ExternalLink className="w-4 h-4" /> Live Demo
+                <ExternalLink className="w-4 h-4" /> View Results
               </button>
               <a
                 href="https://github.com/saicharan2025?tab=repositories"
@@ -51,9 +50,9 @@ export default function FooterSection() {
 
             <div className="grid grid-cols-3 gap-4 pt-4">
               {[
-                { label: "Accuracy", value: "94.2%" },
-                { label: "Students Tracked", value: "2,400+" },
-                { label: "Institutions", value: "12+" },
+                { label: "EPP Accuracy", value: "62.5%" },
+                { label: "Base Records", value: "77" },
+                { label: "Ext Records", value: "1,013" },
               ].map(({ label, value }) => (
                 <div key={label} className="text-center">
                   <div className="text-2xl font-bold gradient-text">{value}</div>
@@ -63,7 +62,7 @@ export default function FooterSection() {
             </div>
           </div>
 
-          {/* Right: Contact form */}
+          {/* Contact form */}
           <div className="card-dark rounded-2xl p-6">
             <div className="flex items-center gap-2 mb-6">
               <Mail className="w-5 h-5" style={{ color: "hsl(var(--primary))" }} />
@@ -84,50 +83,28 @@ export default function FooterSection() {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
                     <label className="block text-xs mb-1.5 mono" style={{ color: "hsl(var(--muted-foreground))" }}>Name</label>
-                    <input
-                      type="text"
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
-                      placeholder="Your name"
-                      required
+                    <input type="text" value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} placeholder="Your name" required
                       className="w-full px-3 py-2.5 rounded-lg text-sm outline-none transition-all duration-200 focus:ring-1"
-                      style={{
-                        background: "hsl(var(--secondary))",
-                        border: "1px solid hsl(var(--border))",
-                        color: "hsl(var(--foreground))",
-                      }}
+                      style={{ background: "hsl(var(--secondary))", border: "1px solid hsl(var(--border))", color: "hsl(var(--foreground))" }}
                       onFocus={(e) => (e.target.style.borderColor = "hsl(var(--primary) / 0.5)")}
-                      onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")}
-                    />
+                      onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")} />
                   </div>
                   <div>
                     <label className="block text-xs mb-1.5 mono" style={{ color: "hsl(var(--muted-foreground))" }}>Email</label>
-                    <input
-                      type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
-                      placeholder="you@example.com"
-                      required
+                    <input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} placeholder="you@example.com" required
                       className="w-full px-3 py-2.5 rounded-lg text-sm outline-none transition-all duration-200"
                       style={{ background: "hsl(var(--secondary))", border: "1px solid hsl(var(--border))", color: "hsl(var(--foreground))" }}
                       onFocus={(e) => (e.target.style.borderColor = "hsl(var(--primary) / 0.5)")}
-                      onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")}
-                    />
+                      onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")} />
                   </div>
                 </div>
                 <div>
                   <label className="block text-xs mb-1.5 mono" style={{ color: "hsl(var(--muted-foreground))" }}>Message</label>
-                  <textarea
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
-                    placeholder="Questions, collaborations, or feedback..."
-                    rows={4}
-                    required
+                  <textarea value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} placeholder="Questions, collaborations, or feedback..." rows={4} required
                     className="w-full px-3 py-2.5 rounded-lg text-sm outline-none resize-none transition-all duration-200"
                     style={{ background: "hsl(var(--secondary))", border: "1px solid hsl(var(--border))", color: "hsl(var(--foreground))" }}
                     onFocus={(e) => (e.target.style.borderColor = "hsl(var(--primary) / 0.5)")}
-                    onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")}
-                  />
+                    onBlur={(e) => (e.target.style.borderColor = "hsl(var(--border))")} />
                 </div>
                 <button type="submit" className="w-full flex items-center justify-center gap-2 py-3 rounded-xl btn-primary text-sm font-semibold">
                   <Send className="w-4 h-4" /> Send Message
@@ -137,14 +114,13 @@ export default function FooterSection() {
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t flex flex-col sm:flex-row items-center justify-between gap-4"
           style={{ borderColor: "hsl(var(--border))" }}>
           <p className="text-xs mono" style={{ color: "hsl(var(--muted-foreground))" }}>
             © 2026 <span style={{ color: "hsl(var(--primary))" }}>StudentPerfAI</span> · Sai Charan · <a href="mailto:saic6806@gmail.com" className="hover:underline" style={{ color: "hsl(var(--primary))" }}>saic6806@gmail.com</a>
           </p>
           <p className="text-xs" style={{ color: "hsl(var(--muted-foreground))" }}>
-            Built with React · TailwindCSS · TypeScript
+            Built with Python · Scikit-learn · React · TailwindCSS
           </p>
         </div>
       </div>

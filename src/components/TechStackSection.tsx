@@ -1,50 +1,50 @@
 const techStack = [
   {
-    category: "ML & AI",
+    category: "ML Algorithms",
     color: "primary",
     items: [
-      { name: "Python 3.11", icon: "🐍" },
+      { name: "SVM (Support Vector Machine)", icon: "🎯" },
+      { name: "Random Forest", icon: "🌲" },
+      { name: "Logistic Regression", icon: "📐" },
+      { name: "EPP (Ensemble Prediction)", icon: "🚀" },
+      { name: "BaggingClassifier", icon: "🎒" },
+      { name: "Matrix Factorization", icon: "🔢" },
+    ],
+  },
+  {
+    category: "Python Libraries",
+    color: "accent",
+    items: [
+      { name: "Python", icon: "🐍" },
       { name: "Scikit-learn", icon: "⚙️" },
-      { name: "TensorFlow", icon: "🔮" },
-      { name: "XGBoost", icon: "🚀" },
       { name: "Pandas", icon: "🐼" },
       { name: "NumPy", icon: "🔢" },
+      { name: "Matplotlib", icon: "📊" },
+      { name: "Tkinter (GUI)", icon: "🖥️" },
     ],
   },
   {
-    category: "Backend",
-    color: "accent",
-    items: [
-      { name: "Flask / Django", icon: "🌐" },
-      { name: "REST API", icon: "🔗" },
-      { name: "PostgreSQL", icon: "🐘" },
-      { name: "Redis Cache", icon: "⚡" },
-      { name: "Celery", icon: "🌿" },
-      { name: "JWT Auth", icon: "🔑" },
-    ],
-  },
-  {
-    category: "Frontend",
+    category: "Dataset & Features",
     color: "primary",
     items: [
-      { name: "React 18", icon: "⚛️" },
-      { name: "TypeScript", icon: "📘" },
-      { name: "Tailwind CSS", icon: "🎨" },
-      { name: "Chart.js", icon: "📊" },
-      { name: "Recharts", icon: "📈" },
-      { name: "React Query", icon: "🔄" },
+      { name: "UCLA Student Dataset", icon: "🎓" },
+      { name: "77 Student Records", icon: "📋" },
+      { name: "12 Course Subjects", icon: "📚" },
+      { name: "Extension: 1013 Records", icon: "📈" },
+      { name: "GPA: HIGH/LOW Labels", icon: "🏷️" },
+      { name: "Course Recommendations", icon: "💡" },
     ],
   },
   {
-    category: "DevOps",
+    category: "Evaluation Metrics",
     color: "accent",
     items: [
-      { name: "AWS EC2", icon: "☁️" },
-      { name: "Heroku", icon: "🟣" },
-      { name: "Docker", icon: "🐳" },
-      { name: "GitHub Actions", icon: "🤖" },
-      { name: "Nginx", icon: "🔧" },
-      { name: "Prometheus", icon: "📡" },
+      { name: "Mean Square Error (MSE)", icon: "📉" },
+      { name: "Accuracy (%)", icon: "✅" },
+      { name: "Train/Test Split (80/20)", icon: "✂️" },
+      { name: "MSE Comparison Graph", icon: "📊" },
+      { name: "Confusion Matrix", icon: "🔲" },
+      { name: "Cross-Validation", icon: "🔄" },
     ],
   },
 ];
@@ -60,10 +60,10 @@ export default function TechStackSection() {
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
             <span style={{ color: "hsl(var(--foreground))" }}>Built With </span>
-            <span className="gradient-text">Industry Standards</span>
+            <span className="gradient-text">ML & Python</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "hsl(var(--muted-foreground))" }}>
-            Production-grade tools and frameworks used across the entire ML pipeline.
+            Algorithms, libraries, and evaluation metrics used across the ML prediction pipeline.
           </p>
         </div>
 

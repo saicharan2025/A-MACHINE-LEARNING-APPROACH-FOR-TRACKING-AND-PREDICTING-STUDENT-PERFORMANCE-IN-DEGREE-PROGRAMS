@@ -4,37 +4,36 @@ const steps = [
   {
     num: "01",
     icon: Database,
-    title: "Data Input & Upload",
-    description: "Faculty or admin uploads CSV files containing student grades, attendance records, and assignment scores. The system validates schema, handles missing values, and confirms data integrity automatically.",
-    tags: ["CSV Upload", "Validation", "PostgreSQL"],
+    title: "Upload UCLA Dataset",
+    description: "Upload the student performance dataset containing course marks for subjects like Math33A, Math33B, PHYS1A, MAE103, etc. The system loads and validates all 77 student records (or 1013 for extension).",
+    tags: ["dataset.txt", "UCLA Data", "77 Records"],
   },
   {
     num: "02",
     icon: Cpu,
-    title: "Preprocessing & Feature Engineering",
-    description: "Raw data is cleaned, normalized, and transformed. Engineered features include GPA velocity, attendance deviation, subject difficulty weights, and temporal patterns across semesters.",
-    tags: ["Normalization", "Feature Extraction", "Scikit-learn"],
+    title: "Matrix Factorization",
+    description: "Builds feature vectors by clustering related courses. Creates a matrix where rows are students and columns are course marks. If student hasn't taken a course, value is 0. Data split into 80% training (61 records) and 20% testing (16 records).",
+    tags: ["Course Clustering", "Feature Vectors", "80/20 Split"],
   },
   {
     num: "03",
     icon: Zap,
-    title: "Model Training",
-    description: "Multiple ML models are trained: Random Forest Regressor for GPA prediction, XGBoost Classifier for dropout risk, and LSTM neural networks for time-series grade trend forecasting.",
-    tags: ["Random Forest", "LSTM", "TensorFlow"],
+    title: "Train ML Algorithms",
+    description: "Trains four algorithms sequentially: SVM (43.75% acc), Random Forest (56.25% acc), Logistic Regression (56.25% acc), and the proposed EPP algorithm using BaggingClassifier with Random Forest as base (62.5% acc).",
+    tags: ["SVM", "Random Forest", "EPP Algorithm"],
   },
   {
     num: "04",
     icon: BarChart,
-    title: "Predictions & Insights",
-    description: "Real-time inference delivers per-student predicted GPA, dropout risk scores, and semester-wise trend forecasts. Results are displayed as interactive charts and alert notifications.",
-    tags: ["GPA Forecast", "Risk Score", "Charts"],
+    title: "Predict Performance",
+    description: "Upload new student test records with ongoing course marks. EPP model predicts GPA as HIGH or LOW. Extension also predicts performance level (Excellent/Good/Average) and recommends future career courses.",
+    tags: ["GPA: HIGH/LOW", "Career Suggest", "MSE Graph"],
   },
 ];
 
 export default function HowItWorksSection() {
   return (
     <section id="how-it-works" className="py-24 relative fade-in-section">
-      {/* Background grid */}
       <div
         className="absolute inset-0 opacity-5"
         style={{
@@ -55,22 +54,18 @@ export default function HowItWorksSection() {
             <span style={{ color: "hsl(var(--foreground))" }}> Works</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "hsl(var(--muted-foreground))" }}>
-            From raw academic data to actionable predictive insights in four intelligent steps.
+            From raw UCLA dataset to GPA prediction using the proposed Ensemble-based Progressive Prediction algorithm.
           </p>
         </div>
 
         <div className="relative">
-          {/* Connecting line */}
           <div className="hidden lg:block absolute top-1/2 left-0 right-0 h-px -translate-y-1/2"
             style={{ background: "linear-gradient(90deg, transparent, hsl(var(--primary) / 0.3), hsl(var(--accent) / 0.3), transparent)" }} />
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {steps.map(({ num, icon: Icon, title, description, tags }, i) => (
               <div key={num} className="card-dark rounded-2xl p-6 relative group hover:-translate-y-2 transition-all duration-300">
-                {/* Step number */}
                 <div className="step-number">{num}</div>
-
-                {/* Icon */}
                 <div className="mt-2 mb-4 w-10 h-10 rounded-xl flex items-center justify-center"
                   style={{
                     background: i % 2 === 0 ? "hsl(var(--primary) / 0.15)" : "hsl(var(--accent) / 0.15)",
@@ -78,11 +73,8 @@ export default function HowItWorksSection() {
                   }}>
                   <Icon className="w-5 h-5" style={{ color: i % 2 === 0 ? "hsl(var(--primary))" : "hsl(var(--accent))" }} />
                 </div>
-
                 <h3 className="font-semibold text-base mb-2" style={{ color: "hsl(var(--foreground))" }}>{title}</h3>
                 <p className="text-sm leading-relaxed mb-4" style={{ color: "hsl(var(--muted-foreground))" }}>{description}</p>
-
-                {/* Tags */}
                 <div className="flex flex-wrap gap-1.5">
                   {tags.map((tag) => (
                     <span key={tag} className="text-xs px-2 py-0.5 rounded-full mono"
