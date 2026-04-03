@@ -1,6 +1,5 @@
 import { useEffect, useRef } from "react";
 import { ArrowRight, TrendingUp, AlertTriangle, BarChart2, Github } from "lucide-react";
-import dashboardImg from "@/assets/dashboard-preview.png";
 
 export default function HeroSection() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -14,7 +13,6 @@ export default function HeroSection() {
     canvas.width = canvas.offsetWidth;
     canvas.height = canvas.offsetHeight;
 
-    // Animated particles
     const particles: { x: number; y: number; vx: number; vy: number; r: number; alpha: number }[] = [];
     for (let i = 0; i < 60; i++) {
       particles.push({
@@ -41,7 +39,6 @@ export default function HeroSection() {
         ctx.fill();
       });
 
-      // Connect nearby particles
       particles.forEach((a, i) => {
         particles.slice(i + 1).forEach((b) => {
           const dist = Math.hypot(a.x - b.x, a.y - b.y);
@@ -64,16 +61,12 @@ export default function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-16">
-      {/* Background canvas */}
       <canvas ref={canvasRef} className="absolute inset-0 w-full h-full opacity-60" />
-      
-      {/* Gradient overlays */}
       <div className="absolute inset-0 section-glow pointer-events-none" />
       <div className="absolute bottom-0 left-0 right-0 h-32 pointer-events-none" style={{ background: "linear-gradient(to bottom, transparent, hsl(var(--background)))" }} />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left content */}
           <div className="space-y-8 animate-slide-up">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mono"
               style={{ background: "hsl(var(--primary) / 0.1)", border: "1px solid hsl(var(--primary) / 0.3)", color: "hsl(var(--primary))" }}>
@@ -86,19 +79,19 @@ export default function HeroSection() {
               <br />
               <span className="gradient-text">Student Performance</span>
               <br />
-              <span style={{ color: "hsl(var(--foreground))" }}>Intelligence</span>
+              <span style={{ color: "hsl(var(--foreground))" }}>Prediction</span>
             </h1>
 
             <p className="text-lg leading-relaxed max-w-xl" style={{ color: "hsl(var(--muted-foreground))" }}>
-              Predict GPA trajectories, detect at-risk students early, and uncover performance trends using state-of-the-art Machine Learning — Random Forest, LSTM, and ensemble models.
+              Predict student GPA as HIGH or LOW using Matrix Factorization and Ensemble-based Progressive Prediction (EPP). Built on UCLA student dataset with SVM, Random Forest, Logistic Regression & propose EPP algorithm.
             </p>
 
             {/* Stat pills */}
             <div className="flex flex-wrap gap-3">
               {[
-                { icon: TrendingUp, label: "GPA Prediction", value: "94.2% Acc" },
-                { icon: AlertTriangle, label: "Dropout Risk", value: "91.8% F1" },
-                { icon: BarChart2, label: "Trend Analysis", value: "Real-time" },
+                { icon: TrendingUp, label: "EPP Accuracy", value: "62.5%" },
+                { icon: AlertTriangle, label: "EPP MSE", value: "37.5%" },
+                { icon: BarChart2, label: "Dataset", value: "77 Records" },
               ].map(({ icon: Icon, label, value }) => (
                 <div key={label} className="flex items-center gap-2 px-3 py-2 rounded-lg card-dark">
                   <Icon className="w-4 h-4" style={{ color: "hsl(var(--primary))" }} />
@@ -110,7 +103,6 @@ export default function HeroSection() {
               ))}
             </div>
 
-            {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => document.querySelector("#demo")?.scrollIntoView({ behavior: "smooth" })}
@@ -119,7 +111,7 @@ export default function HeroSection() {
                 View Live Demo <ArrowRight className="w-4 h-4" />
               </button>
               <a
-                href="https://github.com/saicharan"
+                href="https://github.com/saicharan2025?tab=repositories"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-6 py-3 rounded-xl btn-outline-primary text-sm font-semibold"
@@ -129,23 +121,44 @@ export default function HeroSection() {
             </div>
           </div>
 
-          {/* Right: Dashboard preview */}
+          {/* Right: Algorithm comparison visual */}
           <div className="relative animate-float hidden lg:block">
-            <div className="absolute inset-0 rounded-2xl pointer-events-none" style={{ boxShadow: "var(--shadow-glow)" }} />
-            <img
-              src={dashboardImg}
-              alt="StudentPerfAI Dashboard"
-              className="w-full rounded-2xl glow-border object-cover"
-              style={{ maxHeight: "420px" }}
-            />
-            {/* Floating metric badges */}
+            <div className="card-dark rounded-2xl p-6 glow-border">
+              <h3 className="text-sm font-semibold mb-4" style={{ color: "hsl(var(--foreground))" }}>Algorithm Comparison (MSE %)</h3>
+              <div className="space-y-4">
+                {[
+                  { name: "SVM", mse: 56.25, acc: 43.75 },
+                  { name: "Random Forest", mse: 43.75, acc: 56.25 },
+                  { name: "Logistic Regression", mse: 43.75, acc: 56.25 },
+                  { name: "EPP (Proposed)", mse: 37.5, acc: 62.5 },
+                ].map(({ name, mse, acc }) => (
+                  <div key={name}>
+                    <div className="flex justify-between text-xs mb-1">
+                      <span style={{ color: "hsl(var(--foreground))" }}>{name}</span>
+                      <span className="mono" style={{ color: name === "EPP (Proposed)" ? "hsl(var(--primary))" : "hsl(var(--muted-foreground))" }}>
+                        {acc}% Acc · {mse}% MSE
+                      </span>
+                    </div>
+                    <div className="w-full h-2 rounded-full" style={{ background: "hsl(var(--secondary))" }}>
+                      <div
+                        className="h-full rounded-full transition-all duration-1000"
+                        style={{
+                          width: `${acc}%`,
+                          background: name === "EPP (Proposed)" ? "hsl(var(--primary))" : "hsl(var(--accent))",
+                        }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="absolute -top-4 -right-4 px-3 py-2 rounded-xl metric-card text-center animate-pulse-slow">
-              <div className="mono text-xs" style={{ color: "hsl(var(--primary))" }}>Predicted GPA</div>
-              <div className="font-bold text-lg" style={{ color: "hsl(var(--foreground))" }}>8.2 / 10</div>
+              <div className="mono text-xs" style={{ color: "hsl(var(--primary))" }}>Best Accuracy</div>
+              <div className="font-bold text-lg" style={{ color: "hsl(var(--foreground))" }}>62.5%</div>
             </div>
             <div className="absolute -bottom-4 -left-4 px-3 py-2 rounded-xl metric-card">
-              <div className="mono text-xs" style={{ color: "hsl(var(--accent))" }}>At-Risk Students</div>
-              <div className="font-bold text-lg" style={{ color: "hsl(var(--foreground))" }}>↓ 23%</div>
+              <div className="mono text-xs" style={{ color: "hsl(var(--accent))" }}>Lowest MSE</div>
+              <div className="font-bold text-lg" style={{ color: "hsl(var(--foreground))" }}>37.5%</div>
             </div>
           </div>
         </div>

@@ -2,39 +2,39 @@ import { LayoutDashboard, Brain, Upload, LineChart, Map, ShieldAlert } from "luc
 
 const features = [
   {
-    icon: LayoutDashboard,
-    title: "Real-Time Dashboards",
-    description: "Live performance dashboards with per-student, per-cohort, and per-subject analytics. Instantly updated as new data flows in.",
+    icon: Brain,
+    title: "Matrix Factorization",
+    description: "Clusters related courses using latent factor models to build efficient feature vectors. Handles students with different course selections by forming a unified matrix representation.",
     color: "primary",
   },
   {
-    icon: Brain,
-    title: "ML Prediction Models",
-    description: "Regression models for GPA forecasting and classification algorithms (Random Forest, SVM) for at-risk student detection.",
+    icon: LayoutDashboard,
+    title: "Ensemble-based Progressive Prediction",
+    description: "Proposed EPP algorithm combines base classifiers (Random Forest) with BaggingClassifier ensemble to achieve superior prediction accuracy of 62.5% with lowest MSE of 37.5%.",
     color: "accent",
   },
   {
     icon: Upload,
-    title: "CSV Data Upload",
-    description: "Drag-and-drop upload for grades, attendance, and assignment data. Automatic validation, preprocessing, and feature engineering.",
+    title: "Dataset Upload & Processing",
+    description: "Upload UCLA student dataset (77 records) or extension dataset (1013 records). Automatic matrix factorization, train/test split (80/20), and feature vector generation.",
     color: "primary",
   },
   {
     icon: LineChart,
-    title: "GPA Trend Charts",
-    description: "Interactive line charts displaying semester-wise GPA progression, rolling averages, and predicted future trajectories.",
+    title: "GPA Prediction (HIGH/LOW)",
+    description: "Predicts whether a student's future course GPA will be HIGH or LOW based on their ongoing course marks and past performance using the trained EPP model.",
     color: "accent",
   },
   {
     icon: Map,
-    title: "Subject Heatmaps",
-    description: "Color-coded performance heatmaps across all subjects, semesters, and student cohorts to identify weaknesses at a glance.",
+    title: "Course Recommendation",
+    description: "Extension module predicts academic performance level (Excellent/Very Good/Good/Average) and suggests recommended future career paths like Database Developer, Network Engineer, etc.",
     color: "primary",
   },
   {
     icon: ShieldAlert,
-    title: "Dropout Risk Alerts",
-    description: "Early warning system using LSTM time-series models to flag students with high dropout probability before it's too late.",
+    title: "Multi-Algorithm Comparison",
+    description: "Runs SVM, Random Forest, Logistic Regression, and proposed EPP algorithm in parallel, comparing accuracy and MSE to demonstrate EPP's superiority over base classifiers.",
     color: "accent",
   },
 ];
@@ -43,22 +43,20 @@ export default function FeaturesSection() {
   return (
     <section id="features" className="py-24 relative fade-in-section">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mono mb-4"
             style={{ background: "hsl(var(--primary) / 0.1)", border: "1px solid hsl(var(--primary) / 0.3)", color: "hsl(var(--primary))" }}>
             Core Capabilities
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            <span style={{ color: "hsl(var(--foreground))" }}>Everything You Need for </span>
-            <span className="gradient-text">Smart Analytics</span>
+            <span style={{ color: "hsl(var(--foreground))" }}>Key Features of </span>
+            <span className="gradient-text">StudentPerfAI</span>
           </h2>
           <p className="text-lg max-w-2xl mx-auto" style={{ color: "hsl(var(--muted-foreground))" }}>
-            A complete intelligent system for academic institutions to monitor, predict, and improve student outcomes.
+            A complete ML pipeline from data-driven course clustering to ensemble prediction for student performance tracking.
           </p>
         </div>
 
-        {/* Feature cards grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {features.map(({ icon: Icon, title, description, color }, i) => (
             <div
